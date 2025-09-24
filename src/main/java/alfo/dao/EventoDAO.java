@@ -5,6 +5,8 @@ import alfo.exeptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
+import java.util.UUID;
+
 public class EventoDAO {
 
     private final EntityManager entityManager;
@@ -31,14 +33,14 @@ public class EventoDAO {
 
     }
 
-    public Evento getById(long eventoId) {
+    public Evento getById(UUID eventoId) {
        Evento found = entityManager.find(Evento.class, eventoId);
        if(found == null) throw new NotFoundException(eventoId);
        return found;
     }
 
 
-public void findIdAndDelete(long eventoId){
+public void findIdAndDelete(UUID eventoId){
         Evento found = this.getById(eventoId);
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();

@@ -3,13 +3,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 
 public class Evento {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue
+    @Column(name = "evento_id")
+    private UUID eventoId;
     @Column(nullable = false)
     private String titolo;
     @Column(name = "data_evento")
@@ -47,8 +49,8 @@ public class Evento {
         this.titolo = titolo;
     }
 
-    public long getId() {
-        return id;
+    public UUID getId() {
+        return eventoId;
     }
 
 
@@ -89,7 +91,7 @@ public class Evento {
     @Override
     public String toString() {
         return "Evento{" +
-                "id=" + id +
+                "id=" + eventoId +
                 ", titolo='" + titolo + '\'' +
                 ", dataEvento=" + dataEvento +
                 ", descrizione='" + descrizione + '\'' +
