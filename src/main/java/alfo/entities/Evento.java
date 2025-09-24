@@ -1,12 +1,14 @@
 package alfo.entities;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
-
+@Table(name = "events")
 public class Evento {
     @Id
     @GeneratedValue
@@ -22,23 +24,19 @@ public class Evento {
     private tipoEvento tipoEvento;
     @Column(name = "n_max_partecipanti")
     private int numeroMassimoPartecipanti;
+    @OneToMany(mappedBy = "evento_id")
+    private List<Partecipazione> partecipazioni;
 
 
+    public Evento() {
+    }
 
-
-    public Evento(){}
-    public Evento(String titolo, LocalDate dataEvento, String descrizione,tipoEvento tipoEvento){
+    public Evento(String titolo, LocalDate dataEvento, String descrizione, tipoEvento tipoEvento) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento;
     }
-
-
-
-
-
-
 
 
     public String getTitolo() {
@@ -52,7 +50,6 @@ public class Evento {
     public UUID getId() {
         return eventoId;
     }
-
 
 
     public LocalDate getDataEvento() {

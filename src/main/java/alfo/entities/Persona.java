@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -22,9 +23,10 @@ public class Persona {
     @Column(name = "data_nascita")
     private LocalDate dataNascita;
     private sesso sesso;
+
+
+    @OneToMany(mappedBy = "persona")
     private List<Partecipazione> partecipazioni;
-
-
 
     public Persona(){}
 
