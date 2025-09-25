@@ -30,12 +30,11 @@ public class Persona {
 
     public Persona(){}
 
-    public Persona(String nome, String cognome, String email, LocalDate dataNascita, sesso sesso ){
+    public Persona(String nome, String cognome, String email ){
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
-        this.dataNascita = dataNascita;
-        this.sesso = sesso;
+
     }
 
 

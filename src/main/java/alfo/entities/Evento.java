@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "events")
+@Table (name ="events")
 public class Evento {
     @Id
     @GeneratedValue
@@ -24,7 +24,7 @@ public class Evento {
     private tipoEvento tipoEvento;
     @Column(name = "n_max_partecipanti")
     private int numeroMassimoPartecipanti;
-    @OneToMany(mappedBy = "evento_id")
+    @OneToMany(mappedBy = "evento")
     private List<Partecipazione> partecipazioni;
 
 
@@ -84,7 +84,9 @@ public class Evento {
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
     }
 
+public void addPartecipante(){
 
+}
     @Override
     public String toString() {
         return "Evento{" +

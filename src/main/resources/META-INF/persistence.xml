@@ -7,7 +7,7 @@
         <class>alfo.entities.Evento</class>
         <class>alfo.entities.Partecipazione</class>
         <class>alfo.entities.Persona</class>
-
+        <class>alfo.entities.Location</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/u4w3d3"/>
             <!-- Dopo l'ultimo slash devo inserire il nome del database (QUESTO DEVE ESISTERE PERO') -->
